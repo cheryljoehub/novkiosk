@@ -1,0 +1,257 @@
+:root {
+  --bg-950: #050B14;
+  --bg-900: #0A1624;
+  --bg-800: #112234;
+  --text: #ECF7FF;
+  --muted: #B7CADB;
+  --accent: #D4A63A;
+  --accent-soft: #F6D98B;
+  --accent-2: #5EE7D8;
+  --accent-3: #9C7BFF;
+}
+
+html,
+body {
+  min-height: 100%;
+  background: linear-gradient(160deg, var(--bg-950), var(--bg-900) 52%, var(--bg-800));
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+}
+
+body {
+  display: block;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.strata {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at top left, rgba(94, 231, 216, 0.22), transparent 22%),
+    radial-gradient(circle at top right, rgba(156, 123, 255, 0.18), transparent 28%),
+    radial-gradient(circle at bottom left, rgba(212, 166, 58, 0.12), transparent 24%),
+    linear-gradient(135deg, var(--bg-950), var(--bg-900) 52%, var(--bg-800));
+}
+
+.strata::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.52;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(212, 166, 58, 0.7) 0 2px, transparent 2.8px),
+    radial-gradient(circle at 26% 72%, rgba(94, 231, 216, 0.7) 0 2px, transparent 2.8px),
+    radial-gradient(circle at 52% 18%, rgba(156, 123, 255, 0.75) 0 2px, transparent 2.8px),
+    radial-gradient(circle at 74% 62%, rgba(255, 162, 211, 0.75) 0 2px, transparent 2.8px),
+    radial-gradient(circle at 90% 34%, rgba(94, 231, 216, 0.8) 0 2px, transparent 2.8px);
+  background-size: 280px 260px, 330px 300px, 360px 280px, 290px 320px, 380px 300px;
+  background-position: 0 0, 80px 40px, 120px 100px, 30px 170px, 190px 10px;
+}
+
+.layer { display: none; }
+
+#backBtn {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  z-index: 10;
+  width: 96px;
+  height: 96px;
+  border: 1px solid rgba(146, 175, 201, 0.3);
+  border-radius: 50%;
+  background: rgba(11, 26, 42, 0.78);
+  color: var(--accent-soft);
+  box-shadow: 0 10px 24px rgba(3, 8, 18, 0.28);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+#backBtn svg {
+  width: 48px;
+  height: 48px;
+}
+
+#backBtn:hover {
+  background: rgba(94, 231, 216, 0.12);
+  border-color: rgba(94, 231, 216, 0.55);
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: min(920px, calc(100% - 40px));
+  max-width: 920px;
+  margin: 0 auto;
+  padding: clamp(24px, 5vh, 56px) 20px 64px;
+}
+
+.brand-lockup {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(14px, 2vw, 24px);
+  margin: 0 auto 34px;
+  padding: 14px clamp(20px, 2.8vw, 30px);
+  border: 1px solid rgba(146, 175, 201, 0.22);
+  border-radius: 24px 34px;
+  background: linear-gradient(135deg, rgba(12, 26, 39, 0.9), rgba(17, 39, 59, 0.72));
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  text-align: left;
+}
+
+.brand-lockup img {
+  display: block;
+  width: clamp(104px, 11vw, 140px);
+  height: auto;
+  object-fit: contain;
+}
+
+.brand-lockup-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.brand-script {
+  color: var(--accent-soft);
+  font-family: 'Satisfy', cursive;
+  font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+  line-height: 1;
+}
+
+.brand-school {
+  color: var(--text);
+  font-size: clamp(0.82rem, 1.4vw, 1rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.mark-line { display: none; }
+
+.container h1 {
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+  line-height: 1.12;
+  margin: 0 0 10px;
+}
+
+.subtitle {
+  color: var(--muted);
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  line-height: 1.5;
+}
+
+#quiz-box,
+#result-box {
+  border: 1px solid rgba(110, 156, 196, 0.28);
+  border-radius: 24px;
+  background: linear-gradient(135deg, rgba(16, 30, 46, 0.93), rgba(10, 19, 30, 0.9));
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.24), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+#question {
+  color: var(--text);
+  font-family: 'Outfit', sans-serif;
+}
+
+.option {
+  border: 1px solid rgba(146, 175, 201, 0.24);
+  border-radius: 16px;
+  background: rgba(8, 19, 31, 0.72);
+  color: var(--text);
+}
+
+.option:hover {
+  border-color: rgba(94, 231, 216, 0.52);
+  background: rgba(94, 231, 216, 0.08);
+}
+
+#result-box h2 { color: var(--muted); }
+#result { color: var(--accent-soft); text-shadow: none; }
+#result-desc { color: var(--text); }
+.years { color: var(--muted); }
+
+.primary-btn,
+button:not(#backBtn):not(.option) {
+  border: 1px solid rgba(246, 217, 139, 0.4);
+  border-radius: 14px;
+  background: linear-gradient(135deg, #F6D98B, #D4A63A);
+  box-shadow: 0 10px 24px rgba(3, 8, 18, 0.24);
+  color: #17202B;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+}
+
+.primary-btn:hover,
+button:not(#backBtn):not(.option):hover {
+  background: linear-gradient(135deg, #FFE8A9, #E6BC59);
+  color: #17202B;
+}
+
+.card { gap: 0; }
+
+.option-label {
+  border-color: rgba(246, 217, 139, 0.48);
+  color: var(--accent-soft);
+}
+
+.option-pct,
+.vote-count,
+.reset-link,
+.vs { color: var(--accent-soft); text-shadow: none; }
+
+.bar-fill {
+  background: linear-gradient(90deg, rgba(94, 231, 216, 0.22), rgba(212, 166, 58, 0.16));
+}
+
+.card.voted .option.chosen {
+  border-color: var(--accent-2);
+  box-shadow: 0 0 0 1px rgba(94, 231, 216, 0.16);
+}
+
+.card.voted .option.chosen .option-label {
+  border-color: var(--accent-2);
+  background: var(--accent-2);
+  color: #0A1624;
+}
+
+.vote-note,
+.tomorrow-note { color: var(--muted); }
+
+@media (max-width: 600px) {
+  #backBtn {
+    bottom: 14px;
+    left: 14px;
+    width: 76px;
+    height: 76px;
+  }
+
+  .container {
+    width: min(100% - 20px, 920px);
+    padding: 76px 10px 40px;
+  }
+
+  .brand-lockup {
+    gap: 12px;
+    margin-bottom: 28px;
+    padding: 12px 16px;
+  }
+
+  .brand-lockup img { width: clamp(84px, 24vw, 112px); }
+  .brand-script { font-size: clamp(1.9rem, 8vw, 2.6rem); }
+  .brand-school { font-size: clamp(0.7rem, 3vw, 0.85rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; }
+}

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>College of Business — Degree Programs</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Satisfy&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="degree.css">
+<link rel="stylesheet" href="platform-theme.css">
+</head>
+<body>
+
+<!-- Canyon strata background -->
+<div class="strata">
+  <div class="layer layer-1"></div>
+  <div class="layer layer-2"></div>
+  <div class="layer layer-3"></div>
+  <div class="layer layer-4"></div>
+  <div class="layer layer-5"></div>
+</div>
+
+<!-- Back button -->
+<button id="backBtn" onclick="goBack()" title="Go back">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <polyline points="15 18 9 12 15 6"></polyline>
+  </svg>
+</button>
+
+<script>
+  let idleTimer;
+
+  function resetIdleTimer() {
+    clearTimeout(idleTimer);
+
+    idleTimer = setTimeout(() => {
+      window.location.href = 'index.html';
+    }, 60000); // 1 minute
+  }
+
+  // Reset the timer whenever the user does something
+  ['mousemove', 'mousedown', 'keydown', 'touchstart', 'scroll'].forEach(event => {
+    document.addEventListener(event, resetIdleTimer);
+  });
+
+  // Start the timer
+  resetIdleTimer();
+</script>
+
+
+<div class="container">
+  <div class="brand-lockup">
+    <img src="images/logos/24.png" alt="TW Lewis logo">
+    <div class="brand-lockup-text">
+      <span class="brand-script">TW Lewis</span>
+      <span class="brand-school">College of Business</span>
+    </div>
+  </div>
+  <h1>Explore Degree Programs</h1>
+  <p class="subtitle">Find the perfect major for your career path</p>
+
+  <div id="quiz-box">
+    <div id="question">Select a degree level to begin</div>
+    <div id="options"></div>
+  </div>
+
+  <div id="result-box" class="hidden">
+    <h2>Selected Program</h2>
+    <div id="result"></div>
+    <p id="result-desc"></p>
+    <p class="years" id="result-years"></p>
+    <button class="primary-btn" onclick="restart()">Explore Another Program</button>
+  </div>
+</div>
+
+<script src="degree.js"></script>
+</body>
+</html>

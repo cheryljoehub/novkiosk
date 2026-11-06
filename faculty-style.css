@@ -1,0 +1,877 @@
+/* ===========================
+   TOKENS
+=========================== */
+
+:root{
+    --canyon-deep:   #241536;
+    --canyon-purple: #4F2D7F;
+    --canyon-plum:   #6C3FA0;
+    --canyon-rose:   #A85C8A;
+    --gold:          #FFC627;
+    --gold-dim:      #E8AE1B;
+    --paper:         #F7F3FB;
+    --ink-soft:      #D9CDEA;
+    --glass:         rgba(247, 243, 251, 0.06);
+    --glass-border:  rgba(255, 255, 255, 0.14);
+}
+
+/* ===========================
+   GLOBAL
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Manrope',sans-serif;
+
+    background:var(--canyon-deep);
+
+    color:var(--paper);
+
+    overflow-x:hidden;
+
+    position:relative;
+
+}
+
+h1, h2, h3, .facultyInfo h3, #profileCard h2{
+    font-family:'Fraunces',serif;
+}
+
+/* ===========================
+   CANYON STRATA BACKGROUND
+=========================== */
+
+.strata{
+    position:fixed;
+    inset:0;
+    z-index:0;
+    overflow:hidden;
+    pointer-events:none;
+}
+
+.layer{
+    position:absolute;
+    left:-5%;
+    width:110%;
+    height:32%;
+    opacity:.9;
+}
+
+.layer-1{ top:-4%;  background:var(--canyon-deep);
+    clip-path:polygon(0 20%, 15% 0, 40% 15%, 65% 2%, 100% 18%, 100% 100%, 0 100%); }
+.layer-2{ top:16%;  background:var(--canyon-purple);
+    clip-path:polygon(0 30%, 20% 8%, 50% 28%, 80% 5%, 100% 22%, 100% 100%, 0 100%); }
+.layer-3{ top:38%;  background:var(--canyon-plum);
+    clip-path:polygon(0 24%, 25% 4%, 55% 22%, 78% 0, 100% 16%, 100% 100%, 0 100%); }
+.layer-4{ top:60%;  background:var(--canyon-rose); opacity:.4;
+    clip-path:polygon(0 28%, 30% 6%, 60% 26%, 85% 4%, 100% 20%, 100% 100%, 0 100%); }
+.layer-5{ top:80%;  height:24%; background:var(--gold); opacity:.08;
+    clip-path:polygon(0 40%, 35% 10%, 65% 36%, 100% 14%, 100% 100%, 0 100%); }
+
+/* everything else sits above the background */
+header, .hero, .search, #departments, #facultySection, footer, #profileWindow{
+    position:relative;
+    z-index:1;
+}
+
+/* ===========================
+BACK BUTTON
+=========================== */
+
+#backBtn{
+
+    position:fixed;
+
+    bottom:24px;
+
+    left:24px;
+
+    z-index:10;
+
+    width:96px;
+
+    height:96px;
+
+    border-radius:50%;
+
+    border:1.5px solid var(--glass-border);
+
+    background:var(--glass);
+
+    color:var(--gold);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(6px);
+
+    transition:transform 160ms ease, background 160ms ease, border-color 160ms ease;
+
+}
+
+#backBtn svg{
+
+    width:48px;
+
+    height:48px;
+
+}
+
+#backBtn:hover{
+
+    background:rgba(255,198,39,.12);
+
+    border-color:rgba(255,198,39,.5);
+
+}
+
+#backBtn:active{ transform:scale(.94); }
+
+/* ===========================
+HEADER
+=========================== */
+
+header{
+
+    background:rgba(247,243,251,0.05);
+
+    border-bottom:1.5px solid var(--glass-border);
+
+    color:white;
+
+    padding:24px 50px;
+
+    backdrop-filter:blur(6px);
+
+}
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+}
+
+.logo img{
+
+    width:64px;
+
+    height:64px;
+
+    object-fit:contain;
+
+    border-radius:12px;
+
+    background:var(--paper);
+
+    padding:6px;
+
+}
+
+.mark-line{
+
+    display:block;
+
+    font-size:12px;
+
+    letter-spacing:.3em;
+
+    color:var(--gold);
+
+    font-weight:700;
+
+    margin-bottom:6px;
+
+}
+
+.logo h1{
+
+    font-size:1.9rem;
+
+    font-weight:700;
+
+}
+
+.logo p{
+
+    opacity:.75;
+
+    color:var(--ink-soft);
+
+    margin-top:4px;
+
+}
+
+/* ===========================
+HERO
+=========================== */
+
+.hero{
+
+    text-align:center;
+
+    padding:60px 30px 40px;
+
+}
+
+.hero h2{
+
+    font-size:2.3rem;
+
+    font-weight:700;
+
+    color:var(--paper);
+
+}
+
+.hero p{
+
+    max-width:800px;
+
+    margin:auto;
+
+    margin-top:18px;
+
+    font-size:1.1rem;
+
+    color:var(--ink-soft);
+
+}
+
+/* ===========================
+SEARCH
+=========================== */
+
+.search{
+
+    display:flex;
+
+    justify-content:center;
+
+    margin-bottom:40px;
+
+}
+
+.search input{
+
+    width:600px;
+
+    max-width:90%;
+
+    padding:16px 24px;
+
+    border-radius:50px;
+
+    border:1.5px solid var(--glass-border);
+
+    background:var(--glass);
+
+    color:var(--paper);
+
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+    font-size:16px;
+
+    font-family:'Manrope',sans-serif;
+
+    outline:none;
+
+    backdrop-filter:blur(6px);
+
+    transition:border-color 160ms ease, background 160ms ease;
+
+}
+
+.search input::placeholder{
+
+    color:var(--ink-soft);
+
+}
+
+.search input:focus{
+
+    border-color:var(--gold);
+
+    background:rgba(255,198,39,.08);
+
+}
+
+/* ===========================
+DEPARTMENTS
+=========================== */
+
+#departments{
+
+    width:90%;
+
+    margin:auto;
+
+}
+
+#departments h2{
+
+    margin-bottom:30px;
+
+    color:var(--paper);
+
+    font-weight:700;
+
+    text-align:center;
+
+}
+
+.departmentGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:26px;
+
+    margin-bottom:60px;
+
+}
+
+.department{
+
+    background:var(--glass);
+
+    border:1.5px solid var(--glass-border);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:transform 160ms ease, border-color 160ms ease, background 160ms ease;
+
+    backdrop-filter:blur(6px);
+
+}
+
+.department:hover{
+
+    transform:translateY(-8px);
+
+    border-color:rgba(255,198,39,.5);
+
+    background:rgba(255,198,39,.08);
+
+}
+
+.department img{
+
+    width:100%;
+
+    height:170px;
+
+    object-fit:cover;
+
+}
+
+.department span{
+
+    display:block;
+
+    padding:18px;
+
+    font-size:1.1rem;
+
+    font-weight:700;
+
+    color:var(--paper);
+
+    font-family:'Fraunces',serif;
+
+}
+
+/* ===========================
+FACULTY SECTION
+=========================== */
+
+#facultySection{
+
+    display:none;
+
+    width:90%;
+
+    margin:auto;
+
+    margin-bottom:80px;
+
+}
+
+.titleRow{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-bottom:40px;
+
+}
+
+#homeButton{
+
+    padding:12px 22px;
+
+    border:1.5px solid var(--glass-border);
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    background:var(--glass);
+
+    color:var(--gold);
+
+    font-weight:700;
+
+    font-size:15px;
+
+    font-family:'Manrope',sans-serif;
+
+    transition:background 160ms ease, border-color 160ms ease, transform 140ms ease;
+
+}
+
+#homeButton:hover{
+
+    background:rgba(255,198,39,.1);
+
+    border-color:rgba(255,198,39,.5);
+
+}
+
+#homeButton:active{ transform:scale(.96); }
+
+#facultyTitle{
+
+    color:var(--paper);
+
+    font-weight:700;
+
+}
+
+#facultyGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:26px;
+
+}
+
+/* Faculty Cards */
+
+.facultyCard{
+
+    background:var(--glass);
+
+    border:1.5px solid var(--glass-border);
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    transition:transform 160ms ease, border-color 160ms ease, background 160ms ease;
+
+    backdrop-filter:blur(6px);
+
+}
+
+.facultyCard:hover{
+
+    transform:scale(1.03);
+
+    border-color:rgba(255,198,39,.5);
+
+    background:rgba(255,198,39,.08);
+
+}
+
+.facultyCard img{
+
+    width:100%;
+
+    height:240px;
+
+    object-fit:contain;
+
+    background:rgba(247,243,251,.9);
+
+}
+
+.facultyInfo{
+
+    padding:20px;
+
+}
+
+.facultyInfo h3{
+
+    margin-bottom:8px;
+
+    color:var(--gold);
+
+    font-weight:700;
+
+}
+
+.facultyInfo p{
+
+    opacity:.85;
+
+    color:var(--ink-soft);
+
+}
+
+/* ===========================
+PROFILE WINDOW
+=========================== */
+
+#profileWindow{
+
+    position:fixed;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:100%;
+
+    background:rgba(15,9,26,.8);
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    z-index:100;
+
+    backdrop-filter:blur(4px);
+
+}
+
+#profileCard{
+
+    background:var(--canyon-deep);
+
+    border:1.5px solid var(--glass-border);
+
+    width:900px;
+
+    max-width:90%;
+
+    max-height:90vh;
+
+    overflow-y:auto;
+
+    border-radius:25px;
+
+    padding:40px;
+
+    position:relative;
+
+    color:var(--paper);
+
+}
+
+#closeProfile{
+
+    position:absolute;
+
+    right:20px;
+
+    top:20px;
+
+    width:42px;
+
+    height:42px;
+
+    border:1.5px solid var(--glass-border);
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:var(--glass);
+
+    color:var(--gold);
+
+    font-size:18px;
+
+    transition:background 160ms ease, transform 140ms ease;
+
+}
+
+#closeProfile:hover{ background:rgba(255,198,39,.12); }
+
+#closeProfile:active{ transform:scale(.94); }
+
+#profileImage{
+
+    width:200px;
+
+    height:200px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    display:block;
+
+    margin:auto;
+
+    margin-bottom:20px;
+
+    border:3px solid var(--gold);
+
+}
+
+#profileCard h2{
+
+    text-align:center;
+
+    color:var(--paper);
+
+    font-weight:700;
+
+}
+
+#profileCard h3{
+
+    text-align:center;
+
+    margin-bottom:10px;
+
+    color:var(--gold);
+
+    font-weight:600;
+
+    font-family:'Manrope',sans-serif;
+
+}
+
+#profileDepartment{
+
+    text-align:center;
+
+    color:var(--ink-soft);
+
+}
+
+#profileCard hr{
+
+    border:none;
+
+    border-top:1px solid var(--glass-border);
+
+    margin:20px 0;
+
+}
+
+#profileCard p{
+
+    margin-bottom:15px;
+
+    color:var(--paper);
+
+    line-height:1.6;
+
+}
+
+#profileCard h4{
+
+    margin-top:25px;
+
+    color:var(--gold);
+
+    font-family:'Fraunces',serif;
+
+    font-weight:700;
+
+}
+
+#profileCard ul{
+
+    margin-left:25px;
+
+    color:var(--paper);
+
+    line-height:1.7;
+
+}
+
+#websiteButton{
+
+    width:100%;
+
+    margin-top:40px;
+
+    padding:16px;
+
+    border:none;
+
+    background:var(--gold);
+
+    color:var(--canyon-deep);
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    font-family:'Manrope',sans-serif;
+
+    transition:background 160ms ease, transform 140ms ease;
+
+}
+
+#websiteButton:hover{ background:var(--gold-dim); }
+
+#websiteButton:active{ transform:scale(.98); }
+
+/* ===========================
+   NEON THEME
+=========================== */
+:root{
+    --neon-cyan:#44F2FF;
+    --neon-pink:#FF54D9;
+    --neon-lime:#D7FF52;
+    --neon-bg:#050817;
+}
+
+body{ background:var(--neon-bg); }
+.strata{
+    background:radial-gradient(ellipse at 78% 4%,rgba(68,242,255,.3),transparent 26%),linear-gradient(155deg,#050817 0%,#0B1B38 44%,#102D47 100%);
+}
+.strata::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    opacity:.2;
+    background-image:linear-gradient(rgba(68,242,255,.5) 1px,transparent 1px),linear-gradient(90deg,rgba(68,242,255,.5) 1px,transparent 1px);
+    background-size:34px 34px;
+}
+.layer-1{ background:linear-gradient(110deg,#241536,#38205D); }
+.layer-2{ background:linear-gradient(110deg,#4F2D7F,#65409A); }
+.layer-3{ background:linear-gradient(110deg,#6C3FA0,#8753AC); }
+.layer-4{ background:linear-gradient(110deg,#814B91,#A85C8A); opacity:.8; }
+.layer-5{ background:linear-gradient(110deg,#5B2D72,#7B3F83); opacity:.8; }
+#backBtn,#homeButton,#closeProfile{ color:var(--neon-cyan); border-color:rgba(68,242,255,.45); background:rgba(8,15,34,.72); box-shadow:0 0 16px rgba(68,242,255,.12); }
+#backBtn:hover,#homeButton:hover,#closeProfile:hover{ background:rgba(68,242,255,.16); border-color:var(--neon-cyan); }
+header{ background:rgba(8,15,34,.76); border-bottom-color:rgba(68,242,255,.35); box-shadow:0 0 24px rgba(68,242,255,.1); }
+.logo p,.hero p,.facultyInfo p,#profileDepartment{ color:#B8D5DE; }
+.search input{ background:rgba(8,15,34,.72); border-color:rgba(68,242,255,.45); box-shadow:0 0 18px rgba(68,242,255,.1); }
+.search input:focus{ border-color:var(--neon-cyan); background:rgba(18,54,79,.9); box-shadow:0 0 20px rgba(68,242,255,.24); }
+.search input::placeholder{ color:#8AAEBA; }
+.department,.facultyCard{ background:linear-gradient(135deg,rgba(11,27,51,.94),rgba(8,15,34,.9)); border-color:rgba(68,242,255,.38); box-shadow:0 0 18px rgba(68,242,255,.08); }
+.department:hover,.facultyCard:hover{ background:rgba(18,54,79,.98); border-color:var(--neon-cyan); box-shadow:0 0 24px rgba(68,242,255,.24); }
+.department span{ color:var(--paper); }
+.facultyInfo h3,#facultyTitle,#profileCard h3,#profileCard h4{ color:var(--neon-lime); text-shadow:0 0 10px rgba(215,255,82,.35); }
+.facultyCard img{ background:#0B1B38; }
+#profileWindow{ background:rgba(2,5,15,.84); }
+#profileCard{ background:linear-gradient(135deg,#0B1B38,#080F22); border-color:rgba(68,242,255,.5); box-shadow:0 0 34px rgba(68,242,255,.2); }
+#profileCard h2,#profileCard p,#profileCard ul{ color:var(--paper); }
+#profileImage{ border-color:var(--neon-cyan); box-shadow:0 0 18px rgba(68,242,255,.34); }
+#websiteButton{ background:var(--neon-cyan); color:#06101D; box-shadow:0 0 18px rgba(68,242,255,.35); }
+#websiteButton:hover{ background:var(--neon-pink); color:#fff; }
+
+/* ===========================
+    SOLID DEEP PURPLE BACKGROUND
+=========================== */
+body{ background:#241536; }
+.strata{ background:#241536; }
+.strata::before{ display:block; opacity:.5; background-image:radial-gradient(circle,#FFC627 0 3px,transparent 3.5px),linear-gradient(35deg,transparent 42%,#44F2FF 43% 58%,transparent 59%),linear-gradient(120deg,transparent 42%,#FF54D9 43% 58%,transparent 59%),radial-gradient(circle,#D7FF52 0 2px,transparent 2.5px),linear-gradient(75deg,transparent 42%,#FFC627 43% 58%,transparent 59%); background-size:170px 190px,150px 175px,210px 220px,230px 205px,190px 240px; background-position:18px 24px,72px 80px,125px 12px,40px 142px,155px 116px; }
+.layer{ display:none; }
+
+.strata::before{ background-image:radial-gradient(circle at 8% 14%,rgba(255,198,39,.7) 0 2px,transparent 2.5px),radial-gradient(circle at 24% 72%,rgba(68,242,255,.65) 0 1.5px,transparent 2px),radial-gradient(circle at 47% 22%,rgba(255,84,217,.65) 0 2px,transparent 2.5px),radial-gradient(circle at 72% 64%,rgba(215,255,82,.7) 0 1.5px,transparent 2px),radial-gradient(circle at 91% 32%,rgba(68,242,255,.6) 0 2px,transparent 2.5px); background-size:260px 230px,310px 280px,340px 260px,290px 320px,380px 300px; background-position:0 0,80px 40px,120px 100px,30px 170px,190px 10px; opacity:.5; }
+
+/* ===========================
+FOOTER
+=========================== */
+
+footer{
+
+    background:rgba(247,243,251,0.05);
+
+    border-top:1.5px solid var(--glass-border);
+
+    color:var(--ink-soft);
+
+    text-align:center;
+
+    padding:22px;
+
+    font-size:14px;
+
+    letter-spacing:.02em;
+
+}
+
+/* ===========================
+RESPONSIVE
+=========================== */
+
+@media(max-width:768px){
+
+.logo{
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+.hero h2{
+
+font-size:1.8rem;
+
+}
+
+.search input{
+
+width:95%;
+
+}
+
+.departmentGrid{
+
+grid-template-columns:1fr;
+
+}
+
+#facultyGrid{
+
+grid-template-columns:1fr;
+
+}
+
+}

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Meet Your Professors</title>
+
+    <link rel="stylesheet" href="faculty-style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700;900&family=Manrope:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Canyon strata background -->
+<div class="strata" aria-hidden="true">
+    <div class="layer layer-1"></div>
+    <div class="layer layer-2"></div>
+    <div class="layer layer-3"></div>
+    <div class="layer layer-4"></div>
+    <div class="layer layer-5"></div>
+</div>
+
+<button id="backBtn" onclick="goBack()" aria-label="Go back">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M15 5 L8 12 L15 19" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</button>
+
+<header>
+
+    <div class="logo">
+
+        <img src="images/logos/gculogo.jpg">
+
+        <div>
+
+            <span class="mark-line">GRAND CANYON UNIVERSITY</span>
+
+            <h1>Meet Your Professors</h1>
+
+            <p>Explore our Faculty</p>
+
+        </div>
+
+    </div>
+
+</header>
+
+<section class="hero">
+
+    <h2>Welcome to Colangelo College of Business!</h2>
+
+    <p>
+        Learn about professors, courses, research,
+        and opportunities throughout the college.
+    </p>
+
+</section>
+
+<section class="search">
+
+    <input
+        id="search"
+        type="text"
+        placeholder="Search professors..."
+    >
+
+</section>
+
+<section id="departments">
+
+    <h2>Departments</h2>
+
+    <div class="departmentGrid">
+
+        <button class="department"
+                data-department="Accounting">
+
+            <img src="images/departments/accountimage.jpg">
+
+            <span>Accounting</span>
+
+        </button>
+
+        <button class="department"
+                data-department="Economics">
+
+            <img src="images/departments/econimage.jpg">
+
+            <span>Economics</span>
+
+        </button>
+
+                <button class="department"
+                data-department="Business Analytics">
+
+            <img src="images/departments/businesanaimage.jpg">
+
+            <span>Business Analytics</span>
+
+        </button>
+
+        <button class="department"
+                data-department="Entrepreneurship">
+
+            <img src="images/departments/entreimage.jpg">
+
+            <span>Entrepreneurship</span>
+
+        </button>
+
+        <button class="department"
+                data-department="Hospitality">
+
+            <img src="images/departments/hospitimage.jpg">
+
+            <span>Hospitality</span>
+
+        </button>
+
+        <button class="department"
+                data-department="Marketing">
+
+            <img src="images/departments/marketimage.jpg">
+
+            <span>Marketing</span>
+
+        </button>
+
+        <button class="department"
+                data-department="Sports Management">
+
+            <img src="images/departments/sportimage.jpg">
+
+            <span>Sports Management</span>
+
+        </button>
+
+     <button class="department"
+                data-department="Supply Chain Management">
+
+            <img src="images/departments/supplyimage.jpg">
+
+            <span>Supply Chain Management</span>
+
+        </button>
+
+    </div>
+
+</section>
+
+<section id="facultySection">
+
+    <div class="titleRow">
+
+        <button id="homeButton">
+
+            ← Home
+
+        </button>
+
+        <h2 id="facultyTitle">
+
+            Faculty
+
+        </h2>
+
+    </div>
+
+    <div id="facultyGrid">
+
+    </div>
+
+</section>
+
+<div id="profileWindow">
+
+    <div id="profileCard">
+
+        <button id="closeProfile">
+
+            ✕
+
+        </button>
+
+        <img id="profileImage"
+             src="images/professors/image4.png">
+
+        <h2 id="profileName">
+
+            Professor Name
+
+        </h2>
+
+        <h3 id="profilePosition">
+
+            Professor
+
+        </h3>
+
+        <p id="profileDepartment">
+
+        </p>
+
+        <hr>
+
+        <h4>Office</h4>
+
+        <p id="office"></p>
+
+        <h4>Office Hours</h4>
+
+        <p id="hours"></p>
+
+        <h4>Courses</h4>
+
+        <ul id="courses">
+
+        </ul>
+
+        <h4>Research</h4>
+
+        <ul id="research">
+
+        </ul>
+
+        <h4>Current Projects</h4>
+
+        <ul id="projects">
+
+        </ul>
+
+        <h4>Education</h4>
+
+        <p id="education">
+
+        </p>
+
+        <h4>Fun Fact</h4>
+
+        <p id="funfact">
+
+        </p>
+
+        <button id="websiteButton">
+
+            Faculty Website
+
+        </button>
+
+    </div>
+
+</div>
+
+<footer>
+
+    Colangelo College of Business
+
+</footer>
+
+<script src="faculty-script.js"></script>
+
+</body>
+
+</html>

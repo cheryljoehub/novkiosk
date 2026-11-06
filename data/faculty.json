@@ -1,0 +1,127 @@
+[
+  {
+    "id": 1,
+    "name": "Dr. Jane Smith",
+    "title": "Professor",
+    "department": "Supply Chain Management",
+    "office": "42 - 301",
+    "hours": "Monday & Wednesday 2:00 PM - 4:00 PM",
+    "education": "Ph.D. Computer Science - MIT",
+    "courses": [
+      "Introduction to Programming",
+      "Machine Learning",
+      "Artificial Intelligence"
+    ],
+    "research": [
+      "Artificial Intelligence",
+      "Computer Vision",
+      "Robotics"
+    ],
+    "projects": [
+      "Medical Imaging AI",
+      "Autonomous Drone Navigation"
+    ],
+    "funFact": "Has visited every U.S. National Park.",
+    "website": "https://www.example.edu/janesmith",
+    "image": "images/professors/headshot.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Dr. Michael Johnson",
+    "title": "Associate Professor",
+    "department": "Economics",
+    "office": "Engineering Center 210",
+    "hours": "Tuesday & Thursday 10:00 AM - 12:00 PM",
+    "education": "Ph.D. Mechanical Engineering - Georgia Tech",
+    "courses": [
+      "Statics",
+      "Thermodynamics",
+      "CAD Design"
+    ],
+    "research": [
+      "Renewable Energy",
+      "Mechanical Design"
+    ],
+    "projects": [
+      "Solar Vehicle",
+      "Wind Turbine Optimization"
+    ],
+    "funFact": "Builds race cars in his spare time.",
+    "website": "https://www.example.edu/mjohnson",
+    "image": "images/professors/image4.png"
+  },
+  {
+    "id": 3,
+    "name": "Dr. Sarah Brown",
+    "title": "Assistant Professor",
+    "department": "Entrepreneurship",
+    "office": "Business Hall 120",
+    "hours": "Friday 9:00 AM - 12:00 PM",
+    "education": "Ph.D. Business Administration - Stanford",
+    "courses": [
+      "Marketing",
+      "Entrepreneurship",
+      "Business Analytics"
+    ],
+    "research": [
+      "Consumer Behavior",
+      "Digital Marketing"
+    ],
+    "projects": [
+      "Small Business Growth Study"
+    ],
+    "funFact": "Started her first company at age 21.",
+    "website": "https://www.example.edu/sbrown",
+    "image": "images/professors/image4.png"
+  },
+  {
+    "id": 4,
+    "name": "Dr. Emily Davis",
+    "title": "Professor",
+    "department": "Hospitality",
+    "office": "Life Sciences 102",
+    "hours": "Monday 9:00 AM - 11:00 AM",
+    "education": "Ph.D. Biology - University of Florida",
+    "courses": [
+      "General Biology",
+      "Genetics",
+      "Microbiology"
+    ],
+    "research": [
+      "Genetics",
+      "DNA Sequencing"
+    ],
+    "projects": [
+      "Cancer Cell Research"
+    ],
+    "funFact": "Owns over 50 houseplants.",
+    "website": "https://www.example.edu/edavis",
+    "image": "images/professors/image4.png"
+  },
+    {
+    "id": 1,
+    "name": "Dr. Gary Cahill",
+    "title": "Professor",
+    "department": "Sports Management",
+    "office": "Science Building 301",
+    "hours": "Monday & Wednesday 2:00 PM - 4:00 PM",
+    "education": "Ph.D. Computer Science - MIT",
+    "courses": [
+      "Introduction to Programming",
+      "Machine Learning",
+      "Artificial Intelligence"
+    ],
+    "research": [
+      "Artificial Intelligence",
+      "Computer Vision",
+      "Robotics"
+    ],
+    "projects": [
+      "Medical Imaging AI",
+      "Autonomous Drone Navigation"
+    ],
+    "funFact": "Has visited every U.S. National Park.",
+    "website": "https://www.example.edu/janesmith",
+    "image": "images/professors/headshot.jpg"
+  }
+]
